@@ -1,5 +1,6 @@
 """Audio Recording Class Example"""
 import os
+import sys
 import time
 import datetime
 import argparse
@@ -232,8 +233,7 @@ class AudioProcessor:
             self.stop()
 
 
-if __name__ == '__main__':
-
+def main():
     # parse command line arguments
     parser = argparse.ArgumentParser(description='Audio recorder')
     parser.add_argument('-p', '--path', help='File path for audio recording', default='recording.wav')
@@ -244,7 +244,6 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--filter', help='Frequency Filter on/off', default='off')
     args = parser.parse_args()
     # prompt user to start audio recording
-
     while True:
         output_message(f"Wellcome to audio recorder!", True)
         output_message(f"")
@@ -286,5 +285,9 @@ if __name__ == '__main__':
         # prompt user to start audio recording
         request_input("Press 'Enter' to Restart audio recording")
 
+
+if __name__ == '__main__':
+    main()
+
     time.sleep(1)
-    sys.exit
+    sys.exit()
